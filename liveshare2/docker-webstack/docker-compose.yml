@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+    mariadb:
+        image: mariadb
+        container_name: "mariadb"
+        ports:
+            - "3306:3306"
+        volumes:
+            - "./db/mariadb:/var/lib/mysql:rw"
+            - "./etc/mysql/:/etc/mysql/"
+            - "./sql:/sql"
+        environment:
+            # ALLOW_EMPTY_PASSWORD is recommended only for development.
+            - "MYSQL_ALLOW_EMPTY_PASSWORD=yes"
+            - "MYSQL_USER=root"
+            - "SET GLOBAL sql_mode =''"
+        networks:
+            - docker_webstack
+networks:
+    docker_webstack:
+        driver: bridge
