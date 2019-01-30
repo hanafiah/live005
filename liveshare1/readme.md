@@ -1,6 +1,6 @@
 # master
 
-sebelum teruskan langakah di bawah. pastikan anda dah ada db. dalam contoh ni db yang digunakan adalah employees . setup db di master server sahaja
+sebelum teruskan langkah di bawah. pastikan anda dah ada db. dalam contoh ni db yang digunakan adalah employees . setup db di master server sahaja
 
 ### 1. edit my.cnf seperti di bawah
 
