@@ -2,7 +2,8 @@
 
 sebelum teruskan langakah di bawah. pastikan anda dah ada db. dalam contoh ni db yang digunakan adalah employees . setup db di master server sahaja
 
-1. edit my.cnf seperti di bawah
+### 1. edit my.cnf seperti di bawah
+
 ```
 bind-address    = 0.0.0.0
 # boleh gunakan ip address server. jika direct install mariadb/mysql
@@ -15,7 +16,7 @@ binlog-do-db    = employees
 
 pastikan restart mysql selepas edit my.cnf
 
-2. run mysql shell dan create replika user
+### 2. run mysql shell dan create replika user
 
 mysql shell
 ```
@@ -27,18 +28,18 @@ create user
 GRANT REPLICATION SLAVE ON *.* TO 'slave_user'@'%' IDENTIFIED BY 'password';
 ```
 
-3. flush priviledge
+### 3. flush priviledge
 ```
 FLUSH PRIVILEGES;
 ```
 
-4. lock table
+### 4. lock table
 ```
 USE employees;
 FLUSH TABLES WITH READ LOCK;
 ```
 
-5. run command master status dan catat result 
+### 5. run command master status dan catat result 
 ```
 SHOW MASTER STATUS;
 ```
@@ -53,25 +54,25 @@ contoh result
 
 kita akan gunakan maklumat di kolum File dan Position masa setup slave nanti
 
-6. exit mysql shell
+### 6. exit mysql shell
 ```
 exit
 ```
 
-7. export db employees
+### 7. export db employees
 ```
 mysqldump -u root --opt employees > /sql/master_employees.sql
 ```
 
-8. masuk ke mysql shell semula 
+### 8. masuk ke mysql shell semula 
 ```
 mysql -u root
 ```
 
-9. unlock table semula
+### 9. unlock table semula
 ```
  use employees;
  UNLOCK TABLES;
 ```
 
-10. exit mysql shell. dan selesai bahagian master
+### 10. exit mysql shell. dan selesai bahagian master
