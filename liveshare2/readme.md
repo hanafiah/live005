@@ -13,11 +13,13 @@ binlog-do-db    = employees
 
 pastikan restart mysql selepas edit my.cnf
 
-### 2. copy master_employees yg dah di export dari master . kit aboleh gunakan command scp
+### 2. copy master_employees yg dah di export dari master . kita boleh gunakan command scp
 
 ```
 scp root@178.128.219.253:/root/docker-webstack/sql/master_employees.sql master_employees.sql
 ```
+`178.128.219.253` adalah ip master server
+`/root/docker-webstack/sql/master_employees.sql` adalah lokasi file di master server
 
 ### 3. masuk ke mysql shell dan create database employees
 ```
